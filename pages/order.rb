@@ -5,8 +5,6 @@ class Order < BasePage
   PROCEED		  		= { css: ".cart_navigation > a[title='Proceed to checkout']"}
   ADD					= { css: "cart_quantity_up"}
 
-  attr_reader :driver
-
   def initialize(driver)
     super
   end

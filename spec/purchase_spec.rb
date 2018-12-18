@@ -4,6 +4,12 @@ require_relative '../pages/product'
 require_relative '../pages/order'
 require_relative '../pages/authentication'
 require_relative '../pages/account'
+require_relative '../pages/addresses'
+require_relative '../pages/shipping'
+require_relative '../pages/payment'
+require_relative '../pages/confirm_order'
+require_relative '../pages/order_complete'
+
 
 describe 'Online Shop' do
 
@@ -13,6 +19,11 @@ describe 'Online Shop' do
     @order = Order.new(@driver)
     @authentication = Authentication.new(@driver)
     @account = Account.new(@driver)
+    @addresses = Addresses.new(@driver)
+    @shipping = Shipping.new(@driver)
+    @payment = Payment.new(@driver)
+    @confirm_order = ConfirmOrder.new(@driver)
+    @order_complete = OrderComplete.new(@driver)
   end
 
   it 'can buy a dress from the home page' do
@@ -41,22 +52,21 @@ describe 'Online Shop' do
     @account.enter_account_details
 
     # Address
-    expect(@home.submit_form_present?).to eql true
-    @driver.find_element(css: 'button[name=processAddress]').click
+    expect(@addresses.process_address_present?).to eql true
+    @addresses.process_address
+
     # Shipping
-    expect(@home.submit_form_present?).to eql true
-    @driver.find_element(id: 'cgv').click
-    @driver.find_element(css: 'button[name=processCarrier]').click
+    expect(@shipping.process_shipping_present?).to eql true
+    @shipping.add_shipping
     # Payment
-    expect(@home.payment_option_present?).to eql true
+    expect(@payment.payment_option_present?).to eql true
 
-    @driver.find_element(css: '.payment_module > .bankwire').click
+    @payment.choose_bank_wire
 
-    expect(@home.confirm_order_present?).to eq true
-    @driver.find_element(css: '#cart_navigation button').click
+    expect(@confirm_order.confirm_order_present?).to eq true
+    @confirm_order.submit
 
-    expect(@home.order_complete?).to eql true
-
+    expect(@order_complete.order_complete_present?).to eql true
   end
 
 end

@@ -6,8 +6,6 @@ class Authentication < BasePage
   CREATE_ACCOUNT		= { id: 'create-account_form'}
   CREATE 				= { id: 'SubmitCreate'}
 
-  attr_reader :driver
-
   def initialize(driver)
     super
   end

@@ -6,8 +6,6 @@ class Product < BasePage
   ADD_TO_CART	  		= { id: 'add_to_cart' }
   PROCEED_TO_CHECKOUT 	= { css: '#layer_cart a[title="Proceed to checkout"]'}
 
-  attr_reader :driver
-
   def initialize(driver)
     super
   end
