@@ -27,45 +27,32 @@ describe 'Online Shop' do
   end
 
   it 'can buy a dress from the home page' do
-    
     @home.view_item
-    
     expect(@product.add_to_cart_present?).to eql true
-
     @product.add_to_cart
-
     expect(@product.proceed_to_checkout_present?).to eql true
     # Dialog box
     @product.proceed_to_checkout
-
     expect(@order.proceed_to_checkout_present?).to eql true
     # Summary
     @order.proceed_to_checkout
-
     # Create account
     expect(@authentication.create_account_present?).to eql true
-
     @authentication.create_account
-
     # Account page
     expect(@account.account_form_present?).to eql true
     @account.enter_account_details
-
     # Address
     expect(@addresses.process_address_present?).to eql true
     @addresses.process_address
-
     # Shipping
     expect(@shipping.process_shipping_present?).to eql true
     @shipping.add_shipping
     # Payment
     expect(@payment.payment_option_present?).to eql true
-
     @payment.choose_bank_wire
-
     expect(@confirm_order.confirm_order_present?).to eq true
     @confirm_order.submit
-
     expect(@order_complete.order_complete_present?).to eql true
   end
 

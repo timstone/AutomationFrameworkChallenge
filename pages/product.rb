@@ -11,7 +11,7 @@ class Product < BasePage
   end
 
   def add_to_cart
-  @driver.find_element(ADD_TO_CART).click
+  click ADD_TO_CART
   end
 
   def add_to_cart_present?

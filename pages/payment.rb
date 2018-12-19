@@ -9,7 +9,7 @@ class Payment < BasePage
   end
 
   def choose_bank_wire
-  	@driver.find_element(BANKWIRE).click
+  	click BANKWIRE
   end
 
   def payment_option_present?

@@ -10,7 +10,7 @@ class Order < BasePage
   end
 
   def proceed_to_checkout
-  	@driver.find_element(PROCEED).click
+  	click PROCEED
   end
 
   def proceed_to_checkout_present?

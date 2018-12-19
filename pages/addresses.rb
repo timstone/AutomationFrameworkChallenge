@@ -9,7 +9,7 @@ class Addresses < BasePage
   end
 
   def process_address
-  @driver.find_element(PROCESS_ADDRESS).click
+  click PROCESS_ADDRESS
   end
 
   def process_address_present?

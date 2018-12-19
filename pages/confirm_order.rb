@@ -9,7 +9,7 @@ class ConfirmOrder < BasePage
   end
 
   def submit
-  	@driver.find_element(CONFIRM_ORDER).click
+  	click CONFIRM_ORDER
   end
 
   def confirm_order_present?

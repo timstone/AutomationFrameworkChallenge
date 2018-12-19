@@ -10,8 +10,8 @@ class Shipping < BasePage
   end
 
   def add_shipping
-  	@driver.find_element(ACCEPT).click
-    @driver.find_element(PROCESS_CARRIER).click
+  	click ACCEPT
+    click PROCESS_CARRIER
   end
 
   def process_shipping_present?

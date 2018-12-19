@@ -10,7 +10,7 @@ class Home < BasePage
   end
 
   def view_item
-  	@driver.find_element(ITEM).click
+  	click ITEM
   end
 
 end

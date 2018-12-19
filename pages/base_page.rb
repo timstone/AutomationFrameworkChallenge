@@ -32,4 +32,10 @@ class BasePage
     Selenium::WebDriver::Wait.new(timeout: seconds).until { yield }
   end
 
+  def select_list_value(locator, value)
+    dropdown = find(locator)
+    select_list = Selenium::WebDriver::Support::Select.new(dropdown)
+    select_list.select_by(:value, value)
+  end
+
 end
