@@ -22,7 +22,7 @@ bundle install
 ## Execution
 To run the default setup in ./config/local_config.rb run:
 ```bash
-bundle exec respec --require ./config/local_config.rb
+bundle exec rspec --require ./config/local_config.rb
 ```
 or to specify either chrome or firefox at the command line
 ```bash
